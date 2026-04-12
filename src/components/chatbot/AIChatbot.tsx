@@ -93,7 +93,7 @@ export function AIChatbot() {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.95 }}
         onClick={() => setIsOpen(true)}
-        className={`fixed bottom-32 md:bottom-32 lg:bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-r from-roar-red to-roar-red-hover text-white shadow-glow-red flex items-center justify-center transition-all ${
+        className={`fixed bottom-24 lg:bottom-6 right-6 z-50 w-14 h-14 rounded-full bg-gradient-to-r from-roar-red to-roar-red-hover text-white shadow-glow-red flex items-center justify-center transition-all ${
           isOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'
         }`}
       >

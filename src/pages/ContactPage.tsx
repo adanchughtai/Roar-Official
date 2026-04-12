@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import {
   Mail,
@@ -51,11 +52,29 @@ const contactInfo = [
 export function ContactPage() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [showFaq, setShowFaq] = useState(false);
+  const location = useLocation();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitted(true);
   };
+
+  // When arriving with ?section=faq, automatically show and scroll to FAQs
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    if (params.get('section') === 'faq') {
+      setShowFaq(true);
+    }
+  }, [location.search]);
+
+  useEffect(() => {
+    if (showFaq) {
+      const el = document.getElementById('faq-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
+  }, [showFaq]);
 
   return (
     <div className="min-h-screen pt-24 pb-16">
@@ -206,7 +225,7 @@ export function ContactPage() {
 
         {/* FAQ Section */}
         {showFaq && (
-          <div className="mt-12">
+          <div id="faq-section" className="mt-12">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}

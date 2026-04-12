@@ -49,6 +49,14 @@ export function Navbar() {
   const location = useLocation();
   const navigate = useNavigate();
 
+  // Preload both logo variants so theme toggling doesn't wait on image loads
+  useEffect(() => {
+    const darkLogo = new Image();
+    darkLogo.src = '/roar-logo-dark.png';
+    const lightLogo = new Image();
+    lightLogo.src = '/roar-logo-light.png';
+  }, []);
+
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -83,20 +91,25 @@ export function Navbar() {
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <Link to="/" className="flex items-center gap-2">
-              {theme === 'dark' && isDarkLogoAvailable ? (
-                <img
-                  src="/roar-logo-dark.png"
-                  alt="Roar Motors"
-                  className="h-32 md:h-40 w-auto object-contain"
-                  onError={() => setIsDarkLogoAvailable(false)}
-                />
-              ) : theme !== 'dark' && isLightLogoAvailable ? (
-                <img
-                  src="/roar-logo-light.png"
-                  alt="Roar Motors"
-                  className="h-32 md:h-40 w-auto object-contain"
-                  onError={() => setIsLightLogoAvailable(false)}
-                />
+              {isDarkLogoAvailable || isLightLogoAvailable ? (
+                <>
+                  {isLightLogoAvailable && (
+                    <img
+                      src="/roar-logo-light.png"
+                      alt="Roar Motors"
+                      className="h-32 md:h-40 w-auto object-contain block dark:hidden"
+                      onError={() => setIsLightLogoAvailable(false)}
+                    />
+                  )}
+                  {isDarkLogoAvailable && (
+                    <img
+                      src="/roar-logo-dark.png"
+                      alt="Roar Motors"
+                      className="h-32 md:h-40 w-auto object-contain hidden dark:block"
+                      onError={() => setIsDarkLogoAvailable(false)}
+                    />
+                  )}
+                </>
               ) : (
                 <>
                   <div className="relative w-10 h-10 flex items-center justify-center bg-gradient-to-br from-roar-red to-roar-red-hover rounded-xl">
@@ -240,11 +253,11 @@ export function Navbar() {
                 </div>
               )}
 
-              {/* Mobile Menu Button */}
+              {/* Mobile Menu Button (hidden as per requirement) */}
               <Button
                 variant="ghost"
                 size="icon"
-                className="lg:hidden"
+                className="hidden"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               >
                 {isMobileMenuOpen ? (

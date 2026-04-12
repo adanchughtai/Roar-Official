@@ -23,20 +23,15 @@ const footerLinks = {
     { name: 'Sell Your Car', href: '/sell' },
     { name: 'Car Finance', href: '/services/finance' },
     { name: 'Car Insurance', href: '/services/insurance' },
-    { name: 'Part Exchange', href: '/services/part-exchange' },
-    { name: 'Test Drive', href: '/services/test-drive' },
   ],
   company: [
     { name: 'About Us', href: '/about' },
     { name: 'Our Team', href: '/about/team' },
-    { name: 'Careers', href: '/careers' },
-    { name: 'Press', href: '/press' },
     { name: 'Blog', href: '/blog' },
     { name: 'Contact', href: '/contact' },
   ],
   support: [
-    { name: 'Help Center', href: '/help' },
-    { name: 'FAQs', href: '/faqs' },
+    { name: 'FAQs', href: '/contact?section=faq' },
     { name: 'Terms of Service', href: '/terms' },
     { name: 'Privacy Policy', href: '/privacy' },
     { name: 'Cookie Policy', href: '/cookies' },
@@ -47,7 +42,7 @@ const footerLinks = {
 const socialLinks = [
   { name: 'Facebook', icon: Facebook, href: '#' },
   { name: 'Twitter', icon: Twitter, href: '#' },
-  { name: 'Instagram', icon: Instagram, href: '#' },
+  { name: 'Instagram', icon: Instagram, href: 'https://www.instagram.com/roarofficial.uk/' },
   { name: 'LinkedIn', icon: Linkedin, href: '#' },
   { name: 'YouTube', icon: Youtube, href: '#' },
 ];
@@ -69,17 +64,11 @@ export function Footer() {
             {/* Brand Column */}
             <div className="lg:col-span-4">
               <Link to="/" className="flex items-center gap-3 mb-6">
-                <div className="w-12 h-12 flex items-center justify-center bg-gradient-to-br from-roar-red to-roar-red-hover rounded-xl">
-                  <Car className="w-7 h-7 text-white" />
-                </div>
-                <div className="flex flex-col">
-                  <span className="font-sora font-bold text-2xl tracking-tight">
-                    ROAR
-                  </span>
-                  <span className="text-xs -mt-1 text-white/60 tracking-widest">
-                    MOTORS
-                  </span>
-                </div>
+                <img
+                  src="/transp2.png"
+                  alt="Roar Motors"
+                  className="h-16 md:h-20 w-auto object-contain"
+                />
               </Link>
               
               <p className="text-white/60 mb-6 max-w-sm">
@@ -271,10 +260,7 @@ export function Footer() {
                 rel="noopener noreferrer"
                 className="flex items-center justify-center md:justify-end gap-2 text-white/40 hover:text-roar-red text-sm transition-colors"
               >
-                <span>Made with</span>
-                <Heart className="w-4 h-4 text-roar-red fill-roar-red" />
-                <span>by</span>
-                <span className="font-semibold">Inverse Studios</span>
+                <span>Developed by Inverse Studios.</span>
               </a>
             </div>
           </div>

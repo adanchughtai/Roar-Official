@@ -11,7 +11,6 @@ import {
   Facebook,
 } from 'lucide-react';
 import { useAuthStore } from '@/store/authStore';
-import { useThemeStore } from '@/store/themeStore';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Checkbox } from '@/components/ui/checkbox';
@@ -20,7 +19,6 @@ import { Separator } from '@/components/ui/separator';
 export function LoginPage() {
   const navigate = useNavigate();
   const { login } = useAuthStore();
-  const { theme } = useThemeStore();
   
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -49,7 +47,7 @@ export function LoginPage() {
   };
 
   return (
-    <div className="min-h-screen pt-44 pb-16 flex items-center justify-center">
+    <div className="min-h-screen pt-20 pb-16 flex items-center justify-center">
       <div className="container-premium">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
@@ -60,13 +58,18 @@ export function LoginPage() {
               transition={{ duration: 0.5 }}
               className="h-full"
             >
-              <div className="bg-card rounded-3xl border border-border px-4 pt-4 pb-6 md:px-8 md:pt-6 md:pb-8 h-full flex flex-col">
+              <div className="bg-card rounded-3xl border border-border px-12 pt-6 pb-12 md:px-14 md:pt-8 md:pb-14 h-full flex flex-col">
                 {/* Logo */}
-                <Link to="/" className="inline-flex items-center gap-2 mb-4 -ml-6">
+                <Link to="/" className="inline-flex items-center gap-2 mb-6 -ml-6">
+                  <img
+                    src="/transp1.png"
+                    alt="Roar Motors"
+                    className="h-10 md:h-16 w-auto object-contain block dark:hidden"
+                  />
                   <img
                     src="/transp2.png"
                     alt="Roar Motors"
-                    className="h-10 md:h-16 w-auto object-contain"
+                    className="h-10 md:h-16 w-auto object-contain hidden dark:block"
                   />
                 </Link>
 

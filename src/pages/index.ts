@@ -6,6 +6,8 @@ export { SellCarPage } from './SellCarPage';
 export { AboutPage } from './AboutPage';
 export { ContactPage } from './ContactPage';
 export { ServicesPage } from './ServicesPage';
+export { CarFinancePage } from './CarFinancePage';
+export { CarInsurancePage } from './CarInsurancePage';
 export { BlogPage } from './BlogPage';
 export { BlogPostPage } from './BlogPostPage';
 export { TestimonialsPage } from './TestimonialsPage';

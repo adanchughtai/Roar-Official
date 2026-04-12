@@ -1,5 +1,5 @@
 import { useEffect } from 'react';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, useLocation } from 'react-router-dom';
 import { useThemeStore } from '@/store/themeStore';
 import { Layout } from '@/components/layout/Layout';
 import { AdminLayout } from '@/components/layout/AdminLayout';
@@ -12,6 +12,8 @@ import { SellCarPage } from '@/pages/SellCarPage';
 import { AboutPage } from '@/pages/AboutPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { ServicesPage } from '@/pages/ServicesPage';
+import { CarFinancePage } from '@/pages/CarFinancePage';
+import { CarInsurancePage } from '@/pages/CarInsurancePage';
 import { BlogPage } from '@/pages/BlogPage';
 import { BlogPostPage } from '@/pages/BlogPostPage';
 import { TestimonialsPage } from '@/pages/TestimonialsPage';
@@ -50,6 +52,16 @@ import { CookiesPage } from '@/pages/legal/CookiesPage';
 // 404 Page
 import { NotFoundPage } from '@/pages/NotFoundPage';
 
+function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
   const { theme } = useThemeStore();
 
@@ -59,6 +71,7 @@ function App() {
 
   return (
     <HashRouter>
+      <ScrollToTop />
       <Routes>
         {/* Public Routes */}
         <Route path="/" element={<Layout />}>
@@ -69,6 +82,8 @@ function App() {
           <Route path="about" element={<AboutPage />} />
           <Route path="contact" element={<ContactPage />} />
           <Route path="services" element={<ServicesPage />} />
+          <Route path="services/finance" element={<CarFinancePage />} />
+          <Route path="services/insurance" element={<CarInsurancePage />} />
           <Route path="blog" element={<BlogPage />} />
           <Route path="blog/:id" element={<BlogPostPage />} />
           <Route path="testimonials" element={<TestimonialsPage />} />

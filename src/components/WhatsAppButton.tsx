@@ -14,7 +14,7 @@ export function WhatsAppButton() {
       animate={{ scale: 1 }}
       whileHover={{ scale: 1.1 }}
       whileTap={{ scale: 0.95 }}
-      className="fixed bottom-24 lg:bottom-6 right-6 lg:right-auto lg:left-6 z-40 w-14 h-14 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center overflow-hidden transition-all hover:shadow-xl"
+      className="fixed bottom-24 lg:bottom-6 left-6 z-40 w-14 h-14 rounded-full bg-[#25D366] shadow-lg flex items-center justify-center overflow-hidden transition-all hover:shadow-xl"
       aria-label="Chat on WhatsApp"
     >
       <img

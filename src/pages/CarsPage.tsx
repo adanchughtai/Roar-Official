@@ -352,7 +352,7 @@ export function CarsPage() {
             transition={{ delay: 0.2 }}
             className="hidden lg:block w-72 flex-shrink-0"
           >
-            <div className="bg-card rounded-2xl border border-border p-6">
+            <div className="bg-card rounded-2xl border border-border p-6 sticky top-24 min-h-[60vh] max-h-[calc(100vh-7rem)] overflow-y-auto">
               <div className="flex items-center justify-between mb-6">
                 <h3 className="font-sora font-semibold text-lg">Filters</h3>
                 {activeFiltersCount > 0 && (

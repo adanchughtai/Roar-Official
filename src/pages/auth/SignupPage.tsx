@@ -9,7 +9,6 @@ import {
   User,
   Phone,
   ArrowRight,
-  Car,
   Chrome,
   Facebook,
   CheckCircle,
@@ -80,27 +79,26 @@ export function SignupPage() {
     <div className="min-h-screen pt-20 pb-16 flex items-center justify-center">
       <div className="container-premium">
         <div className="max-w-5xl mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-start">
             {/* Left Side - Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <div className="bg-card rounded-3xl border border-border px-12 py-12 md:px-14 md:py-14">
+              <div className="bg-card rounded-3xl border border-border px-12 pt-6 pb-12 md:px-14 md:pt-8 md:pb-14">
                 {/* Logo */}
-                <Link to="/" className="flex items-center gap-2 mb-12">
-                  <div className="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-roar-red to-roar-red-hover rounded-xl">
-                    <Car className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="font-sora font-bold text-xl tracking-tight">
-                      ROAR
-                    </span>
-                    <span className="text-[10px] -mt-1 text-muted-foreground tracking-widest">
-                      MOTORS
-                    </span>
-                  </div>
+                <Link to="/" className="inline-flex items-center gap-2 mb-6 -ml-6">
+                  <img
+                    src="/transp1.png"
+                    alt="Roar Motors"
+                    className="h-10 md:h-16 w-auto object-contain block dark:hidden"
+                  />
+                  <img
+                    src="/transp2.png"
+                    alt="Roar Motors"
+                    className="h-10 md:h-16 w-auto object-contain hidden dark:block"
+                  />
                 </Link>
 
                 <h1 className="font-sora text-3xl font-bold mb-2">
@@ -311,7 +309,7 @@ export function SignupPage() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="hidden lg:block"
+              className="hidden lg:block mt-10"
             >
               <div className="space-y-6">
                 <h2 className="font-sora text-3xl font-bold">

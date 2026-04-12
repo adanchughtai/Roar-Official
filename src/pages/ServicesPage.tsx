@@ -39,7 +39,7 @@ const services = [
     description: 'Get comprehensive insurance coverage for your vehicle at competitive rates.',
     features: ['Multiple quotes', 'Instant coverage', '24/7 claims', 'No-claims bonus'],
     cta: 'Get Quote',
-    href: '#',
+    href: '/services/insurance',
     color: 'from-purple-500 to-purple-600',
   },
   {
@@ -48,7 +48,7 @@ const services = [
     description: 'Flexible financing options to help you purchase your dream car with ease.',
     features: ['Low APR rates', 'Flexible terms', 'Quick approval', 'No hidden fees'],
     cta: 'Apply Now',
-    href: '#',
+    href: '/services/finance',
     color: 'from-amber-500 to-amber-600',
   },
   {
